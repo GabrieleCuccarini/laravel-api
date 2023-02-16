@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
-// use App\Models\Type;
+use App\Models\Type;
+use App\Models\Technology;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
-use App\Models\Technology;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller {
@@ -20,8 +22,8 @@ class ProjectController extends Controller {
      */
     public function index()
     {
-        //alternativa, mostra progetti in ordine di titolo  $posts = Post::orderBy("title")->get();
-        $projects = Project::all();
+        $projects = Project::paginate(5);
+
         return view("admin.projects.index", compact('projects'));
     }
 

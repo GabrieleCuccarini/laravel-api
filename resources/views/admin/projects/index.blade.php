@@ -59,6 +59,9 @@
         @endforeach
       </tbody>
     </table>  
+
+     {{ $projects->links() }}
+
   </div>
   {{-- @dd($projects); --}}
 @endsection
