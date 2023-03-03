@@ -58,7 +58,7 @@ class ProjectController extends Controller {
  
        $project = Project::create([
         ...$data,
-        //a bd vado a salvare solamente il percorso 
+        //a database vado a salvare solamente il percorso 
         "cover_img" => $path ?? '',
         // recuperiamo l'id dagli user cioé user_id é uguale all'utente loggato
         "user_id" => Auth::id() 

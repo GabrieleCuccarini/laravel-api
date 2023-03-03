@@ -23,6 +23,8 @@ class ProjectController extends Controller {
     // passando un int come primo argomento della funzione
     // $projects = project::paginate(20);
     $projects = Project::all();
+    $projects->load("type", "technologies");
+
     return response()->json($projects);
     }
 
